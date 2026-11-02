@@ -1,0 +1,51 @@
+#!/bin/bash (a)
+if [ "$#" -ne 3 ]
+then
+echo "Usage: $0 filename start_line end_line"
+fi
+file="$1"
+start="$2"
+end="$3"
+sed -n "${start},${end}p" "$file"
+
+
+
+#!/bin/bash(b)
+if [ "$#" -lt 2 ]
+then
+echo "Need atleast two arguments"
+fi
+word="$1"
+shift
+for file in "$@"
+do
+if [ -f "$file" ]
+then
+sed -i "/$word/d" "$file"
+echo "Deleted lines containing '$word' from $file"
+fi
+done
+
+
+
+
+#!/bin/bash (c)
+echo "Currently users are"
+who
+
+read -p "Enter Username: " user
+
+login_time=$(who | awk -v u="$user" '$1 == u {print $3, $4; exit}')
+
+if [ -z "$login_time" ]
+then
+echo "User is not currently logged in."
+else
+echo "Login time: $login_time"
+login_seconds=$(date -d "$login_time" +%s)
+current_seconds=$(date +%s)
+total_seconds=$((current_seconds - login_seconds))
+hours=$((total_seconds / 3600))
+minutes=$(( (total_seconds % 3600) / 60 ))
+echo "Logged in for $hours hours $minutes minutes"
+fi
