@@ -1,0 +1,33 @@
+#!/bin/bash
+read -p "Enter a string: " str
+echo "Length of string: ${#str}"
+read -p "Enter starting position: " start
+read -p "Enter number of characters: " length
+echo "Substring: ${str:$start:$length}"
+
+ // c program
+#include <stdio.h>
+int main(){
+    char str[100];
+    int start, length, i, count = 0;
+    printf("Enter a string: ");
+    fgets(str, 100, stdin);
+
+    // length nikalna
+    while(str[count] != '\n' && str[count] != '\0'){
+        count++;
+    }
+
+    printf("Length of string: %d\n", count);
+    printf("Enter starting position: ");
+    scanf("%d", &start);
+    printf("Enter number of characters: ");
+    scanf("%d", &length);
+
+    printf("Substring: ");
+    for (i = start; i < start+length && i < count; i++){
+        printf("%c", str[i]);
+    }
+    printf("\n");
+    return 0;
+}
