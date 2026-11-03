@@ -1,14 +1,45 @@
-AIM: Write a CPU bound C program and I/O bound C program and observe the effect of their CPU share using top command.THEORY / All Commands - In Same Way as 5:• CPU bound -
-A process that is limited by the speed of the CPU and spends the majority of its execution time in the CPU burst time. It keeps CPU busy.• I/O bound -
-A process that is limited by the speed of I/O devices and spends the majority of its execution time waiting for I/O operations to complete.• pgrep -a cpu_bound -
-It lists all running processes with name cpu_bound along with their PID. Used to find PID of your program to monitor in top.• top -p <PID> -
-This successfully monitors only PID. Shows only that particular process, not all. Used to see CPU % of your program.• %CPU 90.7% -
-Process is using almost 1 full CPU core. In CPU bound it shows 90-100%, in I/O bound it shows very low like 0-2%.• S=R -
-Status Running. Process is always running. In top, S column shows state. CPU bound = R, I/O bound = S (sleeping).• FILE *fp -
-Creates a file pointer to handle files. Used in I/O bound program to open/write file.• fopen() -
-Open the file. 
-Ex: fopen("file.txt", "w")• fclose() -
-Close the file. After finishing file work.• fprintf() -
-Write text inside " " into file. Writes data into file for I/O operation.• "w" mode -
-Check whether the file existed, if existed, empty it, if not create another file. Used to create new file every time.• gcc file.c -o cpu_bound -
-Compiles C program into executable.• ./cpu_bound & -
+
+
+*EXP. No. 9 - CPU Bound & I/O Bound*
+
+*AIM:* To run CPU bound & I/O bound C programs and check CPU % using top.
+
+*THEORY:*
+
+*1. CPU bound -*
+Program jo CPU ka pura use karta hai. Calculation karta rehta hai.
+
+*2. I/O bound -*
+Program jo file / disk ka wait karta hai. CPU free rehta hai.
+
+*All Commands:*
+
+*• pgrep -a cpu_bound -*
+PID dhoondhne ke liye. Program ka number deta hai.
+
+*• top -p <PID> -*
+Sirf uss PID ka CPU usage dekhta hai.
+
+*• %CPU -*
+Kitna CPU use ho raha hai. CPU bound = 90%+, I/O bound = 0-1%
+
+*• S -*
+Status. R = Running, S = Sleeping.
+
+*• FILE *fp -*
+File pointer. File handle karne ke liye.
+
+*• fopen / fclose -*
+File open / close karna.
+
+*• fprintf -*
+File me likhna.
+
+*• gcc & ./a.out & -*
+Compile & background me run karna. `&` se terminal free rahega top chalane ke liye.
+
+---
+
+*Result:*
+CPU bound takes 99% CPU. I/O bound takes 0% CPU.
+
