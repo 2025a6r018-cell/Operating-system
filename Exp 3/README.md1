@@ -1,3 +1,57 @@
-bash commands
 
-chmod +x
+
+*EXP. No. 3(a) & 3(b)*
+
+*AIM:* (a) To check if argument is file/directory and positive/negative/zero (b) To convert file names to uppercase.
+
+
+
+*• #!/bin/bash -*
+First line, called shebang. Tells system to use bash shell to run script.
+
+*• chmod +x file.sh -*
+Adds execute permission to run script. Without it ./file.sh will not work.
+
+*• $0, $1, $# -*
+`$0` - script name
+`$1` - first argument capture, captures what you type after script name
+`$#` - total number of arguments capture
+
+*• $@ -*
+Captures all command line arguments passed to script as group but treats them separately. Used in for loop to take all files.
+
+*• ./file.sh / bash file.sh -*
+To run the script. ./ needs execute permission, bash file.sh works without permission.
+
+*• if, elif, else, fi -*
+`if` checks condition, `elif` checks second condition, `else` if all false, `fi` is end of block.
+
+*• -f, -d -*
+File test operators used inside if [ ]
+`-f` checks if the given path is file
+`-d` check if the given path is directory
+
+*• -eq, -ne, -lt, -le, -gt, -ge -*
+Integer comparison operators used inside [ ]
+`-eq` : equal
+`-ne` : not equal
+`-lt` : less than / smaller than
+`-le` : less than or equal
+`-gt` : greater than
+`-ge` : greater than or equal
+
+*• tr '[:lower:]' '[:upper:]' -*
+Translate or convert small letter to Capital [a-z] to [A-Z].
+`tr '[:upper:]' '[:lower:]'` - Converts Capital [A-Z] to small [a-z].
+
+*• for loop -*
+It is used to repeat the task for each file. `for name in "$@"`
+
+*• mv -*
+It means move or rename the file. Used to save after converting.
+
+*• | - Pipe -*
+It take output of first command and give it as input for second one.
+
+*• > - Redirection -*
+Sends output into a file. Used to store converted content.
