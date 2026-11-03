@@ -2,7 +2,7 @@
 
 *AIM:* Write a program in C that creates a child process, prints termination of the child and lists its PID.
 
-*THEORY / All Commands - In Same Way as 5:*
+
 
 *• PID -*
 Unique ID given by OS to every Process. Har process ka alag number hota hai.
